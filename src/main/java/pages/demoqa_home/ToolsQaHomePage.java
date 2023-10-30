@@ -1,0 +1,19 @@
+package pages.demoqa_home;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import pages.base.BasePage;
+
+public class ToolsQaHomePage extends BasePage {
+    public ToolsQaHomePage(WebDriver driver) {
+        super(driver);
+    }
+    private final By elements = By.xpath("//div[@class='category-cards']/div[1]");
+    public ToolsQaHomePage clickElementsBtn(){
+        WebElement elementsBtn = driver.findElement(elements);
+        waitElementIsVisible(elementsBtn);
+        elementsBtn.click();
+        return this;
+    }
+}

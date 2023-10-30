@@ -1,0 +1,1 @@
+{"uuid":"247e09e4-e4f2-4a9b-b7e5-114d6a43d27a","name":"ToolsQaTest","children":["4c5b8a93-5995-4b48-b577-10ac7185af54"],"befores":[],"afters":[{"name":"quitDriver","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1698661551594,"stop":1698661580137}],"start":1698661499952,"stop":1698661580149}
