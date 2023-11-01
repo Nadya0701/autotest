@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 
 import static constants.Constant.TimeoutVariable.EXPLICIT_WAIT;
@@ -26,4 +27,18 @@ public class BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.visibilityOf(element));
         return element;
     }
+    public void closeAlert(){
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert();
+        driver.switchTo().alert().dismiss();
+    }
+    public void acceptAlert(){
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert().accept();
+    }
+    public void addTextAlert(String text){
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.alertIsPresent());
+        driver.switchTo().alert().sendKeys(text);
+    }
+
 }

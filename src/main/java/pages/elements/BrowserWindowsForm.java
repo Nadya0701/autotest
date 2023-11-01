@@ -1,7 +1,6 @@
 package pages.elements;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
@@ -15,7 +14,6 @@ public class BrowserWindowsForm extends BasePage {
     }
     private final By newTab = By.xpath("//*[text()='New Tab']");
     private final By newWindow = By.cssSelector("#windowButton");
-    private final By newWindowMessage = By.cssSelector("#messageWindowButton");
     public BrowserWindowsForm clickNewTabBtn(){
         WebElement newTabBtn = driver.findElement(newTab);
         waitElementIsVisible(newTabBtn);
@@ -26,12 +24,6 @@ public class BrowserWindowsForm extends BasePage {
         WebElement newWindowBtn = driver.findElement(newWindow);
         waitElementIsVisible(newWindowBtn);
         newWindowBtn.click();
-        return this;
-    }
-    public BrowserWindowsForm clickNewWindowMessageBtn(){
-        WebElement newWindowMessageBtn = driver.findElement(newWindowMessage);
-        waitElementIsVisible(newWindowMessageBtn);
-        newWindowMessageBtn.click();
         return this;
     }
     public BrowserWindowsForm closeNewTab() {

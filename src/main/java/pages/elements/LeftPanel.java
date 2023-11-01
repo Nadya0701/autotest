@@ -12,7 +12,7 @@ public class LeftPanel extends BasePage {
     }
     private final By textBox = By.xpath("//ul[@class='menu-list']/li[1]");
     private final By button = By.xpath("//ul[@class='menu-list']/li[5]");
-    private final By aFrameWindows = By.xpath("//div[text()='Alerts, Frame & Windows']/../..");
+    private final By alertsFrameWindows = By.xpath("//div[text()='Alerts, Frame & Windows']/../..");
     private final By browserWindows = By.xpath("//*[text()='Browser Windows']/..");
     private final By alerts = By.xpath("//span[text()='Alerts']/..");
 
@@ -29,17 +29,23 @@ public class LeftPanel extends BasePage {
         buttonBtn.click();
         return this;
     }
-    public LeftPanel clickAFrameWindowsBtn(){
-        WebElement aFrameWindowsBtn = driver.findElement(aFrameWindows);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", aFrameWindowsBtn);
-        waitElementIsVisible(aFrameWindowsBtn);
-        aFrameWindowsBtn.click();
+    public LeftPanel clickAlertsFrameWindowsBtn(){
+        WebElement alertsFrameWindowsBtn = driver.findElement(alertsFrameWindows);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", alertsFrameWindowsBtn);
+        waitElementIsVisible(alertsFrameWindowsBtn);
+        alertsFrameWindowsBtn.click();
         return this;
     }
-    public LeftPanel clickbrowserWindowsBtn(){
+    public LeftPanel clickBrowserWindowsBtn(){
         WebElement browserWindowsBtn = driver.findElement(browserWindows);
         waitElementIsVisible(browserWindowsBtn);
         browserWindowsBtn.click();
+        return this;
+    }
+    public LeftPanel clickAlertsBtn(){
+        WebElement alertsBtn = driver.findElement(alerts);
+        waitElementIsVisible(alertsBtn);
+        alertsBtn.click();
         return this;
     }
 

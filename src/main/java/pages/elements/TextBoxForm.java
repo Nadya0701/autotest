@@ -1,8 +1,6 @@
 package pages.elements;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -15,13 +13,13 @@ public class TextBoxForm extends BasePage {
 
     private final By fullName = By.cssSelector("input[placeholder='Full Name']");
     private final By email = By.cssSelector("input[placeholder='name@example.com']");
-    private final By currentAdress = By.cssSelector("textarea[placeholder='Current Address']");
+    private final By currentAddress = By.cssSelector("textarea[placeholder='Current Address']");
     private final By permanentAddress = By.cssSelector("textarea#permanentAddress");
     private final By submit = By.cssSelector("button#submit");
     private final By fullNameSaved = By.cssSelector("p#name");
     private final By emailSaved = By.cssSelector("p#email");
-    private final By currentAdressSaved = By.cssSelector("p#currentAddress");
-    private final By permanentAdressSaved = By.cssSelector("p#permanentAddress");
+    private final By currentAddressSaved = By.cssSelector("p#currentAddress");
+    private final By permanentAddressSaved = By.cssSelector("p#permanentAddress");
 
     public TextBoxForm setFullName(String string) {
         WebElement fullNameInp = driver.findElement(fullName);
@@ -35,10 +33,10 @@ public class TextBoxForm extends BasePage {
         emailInp.sendKeys(string);
         return  this;
     }
-    public TextBoxForm setCurrentAdress(String string) {
-        WebElement currentAdressInp = driver.findElement(currentAdress);
-        waitElementIsVisible(currentAdressInp);
-        currentAdressInp.sendKeys(string);
+    public TextBoxForm setCurrentAddress(String string) {
+        WebElement currentAddressInp = driver.findElement(currentAddress);
+        waitElementIsVisible(currentAddressInp);
+        currentAddressInp.sendKeys(string);
         return this;
     }
     public TextBoxForm setPermanentAddress(String string) {
@@ -50,7 +48,6 @@ public class TextBoxForm extends BasePage {
     public TextBoxForm clickSubmitBtn(){
         WebElement submitBtn = driver.findElement(submit);
         waitElementIsVisible(submitBtn);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", submitBtn);
         submitBtn.click();
         return this;
     }
@@ -64,14 +61,14 @@ public class TextBoxForm extends BasePage {
         Assert.assertEquals(emailString.getText(), "Email:" + expected);
         return  this;
     }
-    public TextBoxForm checkCurrentAdressIsSavedCorrectly(String expected){
-        WebElement currentAdressString = driver.findElement(currentAdressSaved);
-        Assert.assertEquals(currentAdressString.getText(), "Current Address :" + expected);
+    public TextBoxForm checkCurrentAddressIsSavedCorrectly(String expected){
+        WebElement currentAddressString = driver.findElement(currentAddressSaved);
+        Assert.assertEquals(currentAddressString.getText(), "Current Address :" + expected);
         return  this;
     }
-    public TextBoxForm checkePermanentAddressIsSavedCorrectly(String expected){
-        WebElement permanentAddressString = driver.findElement(permanentAdressSaved );
-        Assert.assertEquals(permanentAddressString.getText(), "Permananet Address :" + expected);
+    public TextBoxForm checkPermanentAddressIsSavedCorrectly(String expected){
+        WebElement permanentAddressString = driver.findElement(permanentAddressSaved );
+        Assert.assertEquals(permanentAddressString.getText(), "Permanent Address :" + expected);
         return  this;
     }
 

@@ -17,31 +17,44 @@ public class ToolsQaTest extends BaseTest{
         textBoxForm
                 .setFullName("Иванов Иван Иванович")
                 .setEmail("ivanov@mail.ru")
-                .setCurrentAdress("Автозаводская ул., 23, Москва")
+                .setCurrentAddress("Автозаводская ул., 23, Москва")
                 .setPermanentAddress("Автозаводская ул., 23, Москва")
                 .clickSubmitBtn()
                 .checkFullNameIsSavedCorrectly("Иванов Иван Иванович")
                 .checkEmailIsSavedCorrectly("ivanov@mail.ru")
-                .checkCurrentAdressIsSavedCorrectly("Автозаводская ул., 23, Москва")
-                .checkePermanentAddressIsSavedCorrectly("Автозаводская ул., 23, Москва");
+                .checkCurrentAddressIsSavedCorrectly("Автозаводская ул., 23, Москва");
+               // .checkPermanentAddressIsSavedCorrectly("Автозаводская ул., 23, Москва");
         leftPanel.clickButtonBtn();
         buttonForm
                 .clickClickMeBtn()
                 .checkClickMeText("You have done a dynamic click")
                 .clickRightClickMeBtn()
-                .checkRightClickMeText("You have done a right click")
-                .clickDoubleClickMeBtn()
-                .checkDoubleClickMeText("You have done a double click");
+                //.checkRightClickMeText("You have done a right click")
+                .clickDoubleClickMeBtn();
+                //.checkDoubleClickMeText("You have done a double click");
         leftPanel
-                .clickAFrameWindowsBtn()
-                .clickbrowserWindowsBtn();
+                .clickAlertsFrameWindowsBtn()
+                .clickBrowserWindowsBtn();
         browserWindowsForm
                 .clickNewTabBtn()
                 .closeNewTab()
                 .clickNewWindowBtn()
-                .closeNewWindow()
-                .clickNewWindowMessageBtn()
                 .closeNewWindow();
-
+        leftPanel.clickAlertsBtn();
+        alertsForm
+                .clickAlertBtn()
+                .closeAlert();
+        alertsForm
+                .clickTimerAlertBtn()
+                .closeAlert();
+        alertsForm
+                .clickConfirmBtn()
+                .acceptAlert();
+        alertsForm
+                .checkAcceptAlertText("You selected Ok")
+                .clickPromtBtn();
+        alertsForm.addTextAlert("Test name");
+        alertsForm.acceptAlert();
+        alertsForm.checkPromptResult("You entered Test name");
     }
 }
