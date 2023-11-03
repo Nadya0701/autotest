@@ -53,5 +53,4 @@ public class LeftPanel extends BasePage {
         alertsBtn.click();
         return this;
     }
-
 }

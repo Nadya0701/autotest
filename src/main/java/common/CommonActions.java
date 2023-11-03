@@ -4,10 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-import java.util.concurrent.TimeUnit;
-
+import java.time.Duration;
 import static common.Config.PLATFORM_AND_BROWSER;
-import static constants.Constant.TimeoutVariable.IMPLICIT_WAIT;
+import static constants.Constant.TimeoutVariable.IMPLICITLY_WAIT;
+
 
 public class CommonActions {
     public static WebDriver createDriver(){
@@ -22,7 +22,7 @@ public class CommonActions {
                 Assert.fail("Incorrect platform or browser name " + PLATFORM_AND_BROWSER);
         }
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICITLY_WAIT));
         return driver;
     }
 }
